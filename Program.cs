@@ -41,6 +41,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
     .AddErrorDescriber<SpanishIdentityErrorDescriber>()
     .AddEntityFrameworkStores<AppDbContext>();
 
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
