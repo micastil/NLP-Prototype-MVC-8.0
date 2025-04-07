@@ -1,0 +1,23 @@
+﻿@using NLP_Prototype_MVC_8._0.Models.ViewModels
+
+@model DocumentUploadViewModel
+
+<form id="frmUpload" asp-controller="Document" asp-action="Upload">
+
+    <div class="form-floating mb-3">
+        <input asp-for="Title" class="form-control" />
+        <label asp-for="Title" class="form-label"></label>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <textarea asp-for="Content" class="form-control" style="height: 300px"></textarea>
+        <label asp-for="Content" class="form-label"></label>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="submit" value="Create New Document" class="btn btn-success" />
+    </div>
+
+</form>
