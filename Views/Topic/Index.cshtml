@@ -1,0 +1,34 @@
+﻿@model List<Topic>
+
+@{
+	ViewData["Title"] = "Topics";
+}
+
+@if (Model.Count > 0)
+{
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Topic Name</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Title</td>
+					<td>
+						<a data-bs-toggle="tooltip" data-bs-title="Topic Detail" href="/Topic/Details?id=@item.Id">
+							<i class="bi-file-text" style="vertical-align: middle;"></i>
+						</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+else
+{
+	<h3>No hay tópicos en la base de datos externa.</h3>
+}

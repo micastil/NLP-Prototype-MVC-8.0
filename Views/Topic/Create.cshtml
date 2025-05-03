@@ -1,0 +1,15 @@
+﻿@model Topic
+
+<form id="frmCreateTopic" asp-controller="Topic" asp-action="Create">
+
+    <div class="form-floating mb-3">
+        <input asp-for="Title" class="form-control" />
+        <label asp-for="Title" class="form-label"></label>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="submit" value="Create New Topic" class="btn btn-success" />
+    </div>
+
+</form>

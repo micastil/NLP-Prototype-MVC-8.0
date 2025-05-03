@@ -1,0 +1,95 @@
+﻿@using NLP_Prototype_MVC_8._0.Models.ViewModels
+
+@model TopicDetailViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Title</h1>
+
+<div class="accordion" id="questions">
+
+    <div class="accordion-item mb-3">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuestions" aria-expanded="true" aria-controls="collapseQuestions">
+                <strong>Preguntas del Tópico</strong>
+            </button>
+        </h2>
+
+        <div id="collapseQuestions" class="accordion-collapse collapse">
+            <div class="accordion-body">
+
+                @if (Model.Questions.Count > 0)
+                {
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Texto Pregunta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Questions)
+                            {
+                                <tr>
+                                    <td>@item.QuestionText</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <h3>No existen Preguntas asociadas al tópico</h3>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="accordion" id="documents">
+
+    <div class="accordion-item mb-3">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDocuments" aria-expanded="true" aria-controls="collapseDocuments">
+                <strong>Documentos del Tópico</strong>
+            </button>
+        </h2>
+
+        <div id="collapseDocuments" class="accordion-collapse collapse">
+            <div class="accordion-body">
+
+                @if (Model.Documents.Count > 0)
+                {
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Fecha del Documento</th>
+                                <th>Contenido del Documento
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Documents)
+                            {
+                                <tr>
+                                    <td>@item.Title</td>
+                                    <td>@item.UploadedAt</td>
+                                    <td>@item.Content</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <h3>No existen Documentos asociadas al tópico</h3>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
